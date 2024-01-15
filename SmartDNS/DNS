@@ -1,0 +1,222 @@
+#阿里DNS
+config server
+	option enabled '1'
+	option type 'udp'
+	option blacklist_ip '0'
+	option name '阿里云DNS'
+	option ip '223.5.5.5'
+
+config server
+	option enabled '1'
+	option name '阿里云DNS'
+	option ip '223.6.6.6'
+	option type 'udp'
+	option blacklist_ip '0'
+
+config server
+	option enabled '1'
+	option blacklist_ip '0'
+	option name '阿里云IPV6'
+	option ip '2400:3200::1'
+	option type 'udp'
+
+config server
+	option enabled '1'
+	option name '阿里云IPV6'
+	option ip '2400:3200:baba::1'
+	option type 'udp'
+	option blacklist_ip '0'
+
+config server
+	option enabled '1'
+	option name '阿里云DoH'
+	option ip 'https://dns.alidns.com/dns-query'
+	option type 'https'
+	option blacklist_ip '0'
+	option no_check_certificate '0'
+
+#腾讯DNS
+config server
+	option enabled '1'
+	option type 'udp'
+	option blacklist_ip '0'
+	option name '腾讯云DNS'
+	option ip '119.29.29.29'
+
+config server
+	option enabled '1'
+	option blacklist_ip '0'
+	option name '腾讯云IPV6'
+	option ip '2402:4e00::'
+	option type 'udp'
+
+config server
+	option enabled '1'
+	option name '腾讯云DoH'
+	option ip 'https://doh.pub/dns-query'
+	option type 'https'
+	option blacklist_ip '0'
+	option no_check_certificate '0'
+
+#360安全DNS
+config server
+	option enabled '1'
+	option type 'udp'
+	option blacklist_ip '0'
+	option name '360安全DNS'
+	option ip '101.226.4.6'
+
+config server
+	option enabled '1'
+	option blacklist_ip '0'
+	option name '360安全DNS'
+	option ip '218.30.118.6'
+	option type 'udp'
+
+#OneDNS
+config server
+	option enabled '1'
+	option type 'udp'
+	option blacklist_ip '0'
+	option name 'OneDNS'
+	option ip '52.80.66.66'
+
+config server
+	option enabled '1'
+	option name 'OneDNS'
+	option ip '117.50.11.11'
+	option type 'udp'
+	option blacklist_ip '0'
+
+config server
+	option enabled '1'
+	option blacklist_ip '0'
+	option name 'OneIPV6'
+	option ip '2404:c2c0:85d8:901::4'
+	option type 'udp'
+
+config server
+	option enabled '1'
+	option name 'OneIPV6'
+	option ip '2400:7fc0:849e:200::4'
+	option type 'udp'
+	option blacklist_ip '0'
+
+config server
+	option enabled '1'
+	option name 'OneDNSDoH'
+	option ip 'https://dot.onedns.net/dns-query'
+	option type 'https'
+	option blacklist_ip '0'
+	option no_check_certificate '0'
+	
+#CloudFlare
+config server
+	option enabled '1'
+	option type 'udp'
+	option blacklist_ip '0'
+	option name 'CloudFlare'
+	option ip '1.1.1.1'
+
+config server
+	option enabled '1'
+	option type 'udp'
+	option blacklist_ip '0'
+	option name 'CloudFlare'
+	option ip '1.0.0.1'
+	
+config server
+	option enabled '1'
+	option blacklist_ip '0'
+	option name 'CloudFlareIPV6'
+	option ip '2606:4700:4700::1111'
+	option type 'udp'
+
+config server
+	option enabled '1'
+	option name 'CloudFlareIPV6'
+	option ip '2606:4700:4700::1001'
+	option type 'udp'
+	option blacklist_ip '0'
+	
+config server
+	option enabled '1'
+	option name 'CloudFlareDoH'
+	option ip 'https://cloudflare-dns.com/dns-query'
+	option type 'https'
+	option blacklist_ip '0'
+	option no_check_certificate '0'
+
+#Google
+config server
+	option enabled '1'
+	option type 'udp'
+	option blacklist_ip '0'
+	option name 'Google'
+	option ip '8.8.8.8'
+
+config server
+	option enabled '1'
+	option type 'udp'
+	option blacklist_ip '0'
+	option name 'Google'
+	option ip '8.8.8.4'
+	
+config server
+	option enabled '1'
+	option blacklist_ip '0'
+	option name 'GoogleIPV6'
+	option ip '2001:4860:4860::8888'
+	option type 'udp'
+
+config server
+	option enabled '1'
+	option name 'GoogleIPV6'
+	option ip '2001:4860:4860::8844'
+	option type 'udp'
+	option blacklist_ip '0'
+	
+config server
+	option enabled '1'
+	option name 'GoogleDoH'
+	option ip 'https://dns.google/dns-query'
+	option type 'https'
+	option blacklist_ip '0'
+	option no_check_certificate '0'
+	
+#IBM Quad9
+config server
+	option enabled '1'
+	option type 'udp'
+	option blacklist_ip '0'
+	option name 'IBM Quad9'
+	option ip '9.9.9.9'
+
+config server
+	option enabled '1'
+	option type 'udp'
+	option blacklist_ip '0'
+	option name 'IBM Quad9'
+	option ip '149.112.112.112'
+	
+config server
+	option enabled '1'
+	option blacklist_ip '0'
+	option name 'IBM Quad9 IPV6'
+	option ip '2620:fe::fe'
+	option type 'udp'
+
+config server
+	option enabled '1'
+	option name 'IBM Quad9 IPV6'
+	option ip '2620:fe::fe:9'
+	option type 'udp'
+	option blacklist_ip '0'
+	
+config server
+	option enabled '1'
+	option name 'IBM Quad9 DoH'
+	option ip 'https://dns.quad9.net/dns-query'
+	option type 'https'
+	option blacklist_ip '0'
+	option no_check_certificate '0'
