@@ -1,0 +1,14 @@
+#这里是Docker run安装指令汇总，适用于iStoreOS系统。
+#记得更改端口号以及挂载地址。
+
+#Music Tag Web
+docker run -d -p 8001:8001 
+-v /mnt/data_sda4/Public/Music:/app/media 
+-v /mnt/data_sda4/Configs/MusicTagWeb:/app/data 
+--restart=always 
+xhongc/music_tag_web:latest
+
+#BliveChat
+docker run --name blivechat -d -p 12450:12450/tcp
+-v /mnt/xxxx/Configs/blivechat:/mnt/data/data \
+xfgryujk/blivechat:latest
