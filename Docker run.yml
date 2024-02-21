@@ -10,5 +10,18 @@ xhongc/music_tag_web:latest
 
 #BliveChat
 docker run --name blivechat -d -p 12450:12450/tcp
--v /mnt/xxxx/Configs/blivechat:/mnt/data/data \
+-v /mnt/sata4-2/Configs/blivechat:/mnt/data/data \
 xfgryujk/blivechat:latest
+
+#Plex（Host模式）
+#默认端口32400
+docker run \
+-d \
+--name plex \
+--network=host \
+-e TZ=Asia/Shanghai \
+-e PLEX_CLAIM= #https://www.plex.tv/claim/ \
+-v /mnt/sata4-2/Configs/Plex:/config \
+-v /mnt/sata4-2/Caches/Plex:/transcode \
+-v /mnt:/data \
+plexinc/pms-docker
