@@ -2,14 +2,20 @@
 #记得更改端口号以及挂载地址。
 
 #Music Tag Web
-docker run -d -p 8001:8001 
+docker run \
+--name music_tag_web \
+-d \
+-p 8001:8001 \
 -v /mnt/data_sda4/Public/Music:/app/media 
 -v /mnt/data_sda4/Configs/MusicTagWeb:/app/data 
 --restart=always 
 xhongc/music_tag_web:latest
 
 #BliveChat
-docker run --name blivechat -d -p 12450:12450/tcp
+docker run \
+--name blivechat \
+-d \
+-p 12450:12450/tcp \
 -v /mnt/sata4-2/Configs/blivechat:/mnt/data/data \
 xfgryujk/blivechat:latest
 
