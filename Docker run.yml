@@ -25,3 +25,15 @@ docker run \
 -v /mnt/sata4-2/Caches/Plex:/transcode \
 -v /mnt:/data \
 plexinc/pms-docker
+
+#Navidrome（Host模式）
+#默认端口4533
+docker run -d \
+--name navidrome \
+--restart=unless-stopped \
+--network=host \
+-e TZ=Asia/Shanghai \
+-v /mnt/sata4-1/Public/Music:/music:ro \
+-v /mnt/sata4-1/Configs/Navidrome:/data \
+-e ND_LOGLEVEL=info \
+deluan/navidrome:latest
