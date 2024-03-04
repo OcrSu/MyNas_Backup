@@ -43,3 +43,20 @@ docker run -d \
 -v /mnt/sata4-1/Configs/Navidrome:/data \
 -e ND_LOGLEVEL=info \
 deluan/navidrome:latest
+
+#It-Tools（Bridge模式）
+docker run 
+-d 
+--name it-tools 
+--restart unless-stopped 
+-p 53000:80 
+corentinth/it-tools:latest
+
+
+#Excalidraw（Bridge模式）
+docker run 
+--rm 
+-dit 
+--name excalidraw 
+-p 51011:80 
+excalidraw/excalidraw:latest
