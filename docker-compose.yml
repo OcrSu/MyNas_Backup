@@ -1,0 +1,168 @@
+---
+services:
+  plex:
+    image: linuxserver/plex:latest
+    container_name: plex
+    network_mode: host #32400
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Etc/UTC
+      - VERSION=docker
+      - PLEX_CLAIM= #https://www.plex.tv/claim/
+    volumes:
+      - /<>:/config
+      - /<>:/transcode
+      - /<>:/data
+    restart: unless-stopped
+---
+
+
+
+---
+services:
+  flare:
+    image: soulteary/flare
+    container_name: flare
+    network_mode: host #5005
+    environment:
+      - TZ=Asia/Shanghai
+      - FLARE_PASS=
+      - FLARE_USER=
+      - FLARE_PORT=
+      - FLARE_VISIBILITY=
+    volumes:
+      - /<>:/app/data
+    restart: unless-stopped
+---
+
+
+
+---
+services:
+  mtphotos:
+    image: registry.cn-hangzhou.aliyuncs.com/mtphotos/mt-photos:latest
+    container_name: mtphotos
+    restart: always
+    network_mode: host #8063
+    volumes:
+      - /<>:/config
+      - /<>:/upload
+    environment:
+      - TZ=Asia/Shanghai
+      - LANG=C.UTF-8
+    dns:
+      - 114.114.114.114
+---
+
+
+
+---
+services:
+  bilirecorder:
+    image: bililive/recorder:latest
+    container_name: bilirecorder
+    restart: always
+    network_mode: host #2356
+    volumes:
+      - type: bind
+        source: /<>
+        target: /rec
+    environment:
+      - TZ=Asia/Shanghai
+      - BREC_HTTP_BASIC_USER=
+      - BREC_HTTP_BASIC_PASS=
+---
+
+
+
+---
+services:
+  blivechat:
+    image: xfgryujk/blivechat:latest
+    container_name: blivechat
+    restart: always
+    network_mode: host #12450
+    volumes:
+      - type: bind
+        source: /<>
+        target: /blivechat-data
+    environment:
+      - TZ=Asia/Shanghai
+---
+
+
+
+---
+services:
+  onenav:
+    image: helloz/onenav
+    restart: unless-stopped
+    volumes:
+      - /<>:/data/wwwroot/default/data 
+    ports:
+      - 11005:80
+    environment:
+      - USER='' 
+      - PASSWORD='' 
+---
+
+
+
+---
+services:
+  navidrome:
+    image: deluan/navidrome:latest
+    user: 1000:1000 # should be owner of volumes
+    container_name: navidrome
+    ports:
+      - "11533:4533"
+    restart: unless-stopped
+    environment:
+      # Optional: put your config options customization here. Examples:
+      ND_SCANSCHEDULE: 1h
+      ND_LOGLEVEL: info  
+      ND_SESSIONTIMEOUT: 24h
+      ND_BASEURL: ""
+      TZ: Asia/Shanghai
+    volumes:
+      - "/<>:/data"
+      - "/<>:/music:ro"
+---
+
+
+
+---
+services:
+  xunlei:
+    image: cnk3x/xunlei:latest
+    restart: unless-stopped
+    network_mode: bridge
+    ports:
+      - 11008:2345 
+    container_name: xunlei
+    volumes:
+      - /<>:/xunlei/data 
+      - /<>:/xunlei/downloads
+    environment:
+      - TZ=Asia/Shanghai
+---
+
+
+
+---
+services:
+  siyuan:
+    image: b3log/siyuan
+    restart: unless-stopped
+    command: ['--workspace=/siyuan/<your-space-name>/', '--accessAuthCode=<your-password>']
+    volumes:
+      - /<>:/siyuan/<your-space-name>
+    ports:
+      - 11006:6806
+      - 11007:6807
+    environment:
+      - PGID=1000
+      - PUID=1000
+      - TZ=Asia/Shanghai
+---
